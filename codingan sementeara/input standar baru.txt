@@ -1,0 +1,208 @@
+@extends('layouts.rnd')
+@section('content')
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="card">
+      <div class="card-body">
+        <div class="col-sm-12">
+          <div class="col-sm-10 offset-1">
+                
+    <div class="latar">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                
+                                <li class="nav-item col-sm-6 text-center">
+                                  <a class="nav-link active" id="pills-baku-tab" data-toggle="pill" href="#pills-baku" role="tab" aria-controls="pills-baku" aria-selected="true">Baku</a>
+                                </li>
+                            
+                            
+                                <li class="nav-item col-sm-6 text-center">
+                                  <a class="nav-link" id="pills-wip-tab" data-toggle="pill" href="#pills-wip" role="tab" aria-controls="pills-wip" aria-selected="false">WIP</a>
+                                </li>
+                            
+                              </ul>
+                              <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-baku" role="tabpanel" aria-labelledby="pills-baku-tab">
+                                       <div class="card-body">
+                                           
+                                            <div class="form-group">
+                                            <form action="/rnd/input/item/baru/store" method="post">
+                                           {{csrf_field()}}
+                                                <input type="hidden" name="users_id" class="form-control" value="{{Auth::user()->id}}">
+                                                <input type="text" required name="kode_oracle" placeholder="Kode Oracle" class="form-control">
+                                                <input type="text" required name="nama_item" placeholder="Nama Item" class="form-control">
+                                                <input type="text" required name="nolot" placeholder="No. Lot" class="form-control">
+                                                <select name="sub_kategori" required class="form-control">
+                                                <option value=''>-- Sub Kategori --</option>
+                                                
+                                                  @foreach($tb_sub_kategori as $tb)
+                                                          <option value="{{$tb->id_sub_kategori}}">{{$tb->nama_kategori}}</option>
+                                                  @endforeach
+                                                
+
+                                                </select>
+                                                <!-- <select name='work_center' class='form-control' required data-toggle='tooltip' data-placement='left' title='Work Center'>
+                                                        <option value=''>-- Work Center --</option>
+                                                            <option value='Baku A'>Dairy Ciawi</option>
+                                                            <option value='Baku B'>Non-dairy Ciawi</option>
+                                                            <option value='Baku E'>Dairy Cibitung</option>
+                                                            <option value='Baku F'>Non-dairy Cibitung</option>
+                                                            <option value='Baku Sentul'>Sentul<option>
+                                                    </select> -->
+
+                                                <input type="text" required name="lokasi" placeholder="Lokasi" class="form-control">
+                                                <input type="number" required name="umur_simpan" placeholder="Umur Simpan" class="form-control">
+                                                <div class="col-sm-8">
+                                                <div class="form-group">
+                                                          <label>
+                                                          Plant :</label>
+                                                                @foreach($tb_plant as $tb)
+                                                                 
+                                                                  <input type="radio" class="minimal" name="plant" required value="{{$tb->id_plant}}">{{$tb->plant}}	
+                                                                 
+                                                                @endforeach
+                                                            
+                                                          
+                                                        </div>
+                                                        <br>
+                                                        
+                                                </div>
+                                                <input type="text" required name="tempat_penyimpanan" placeholder="Tempat Penyimpanan" class="form-control">
+                                                <input type="text" required name="tgl_datang" class="form-control" placeholder="Tanggal Datang BB" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                                <input type="text" required name="tgl_dibuat" class="form-control" placeholder="Tanggal Dibuat Standar" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                                <input type="text" required name="tgl_expired" class="form-control" placeholder="Tanggal Expired Standar" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                                <input type="number" required name="stok_item" class="form-control" placeholder="Stok Item">
+                                                <input type="text" required name="pembuat" class="form-control" placeholder="Pembuat">
+                                                <textarea name="keterangan" id="keterangan" cols="180" rows="3" placeholder="keterangan" class="form-control"></textarea>
+                                                <br>
+                                                <button class="btn btn-success form-control">INPUT</button>
+                                                </form>                                                    
+                                            </div>
+
+                                       </div>
+                                    </div>
+
+                                    <!-- WIP -->
+                                    <div class="tab-pane fade" id="pills-wip" role="tabpanel" aria-labelledby="pills-wip-tab">
+                                    <div class="card-body">
+                                            <form action="">
+                                            <div class="form-group">
+                                                <input type="text" name="kd_oracle" placeholder="Nama Produk" class="form-control">
+                                                <input type="text" name="nama_sederhana" placeholder="Kode Formula" class="form-control">
+                                                <input type="text" name="nama_sederhana" placeholder="Revisi Formula Std RND" class="form-control">
+                                                <input type="text" name="no_lot" placeholder="No. Lot" class="form-control">
+                                                <select name="sub_kategori" class="form-control select2">
+                                                        <option value=''>-- Sub Kategori --</option>
+                                                        <option value='None'>None</option>
+
+                                                </select>
+                                                <select name='work_center' class='form-control' required data-toggle='tooltip' data-placement='left' title='Work Center'>
+                                                        <option value=''>-- Work Center --</option>
+                                                            <option value='Baku A'>Dairy Ciawi</option>
+                                                            <option value='Baku B'>Non-dairy Ciawi</option>
+                                                            <option value='Baku E'>Dairy Cibitung</option>
+                                                            <option value='Baku F'>Non-dairy Cibitung</option>
+                                                            <option value='Baku Sentul'>Sentul<option>
+                                                    </select>
+
+                                                <input type="text" name="lokasi" placeholder="Lokasi" class="form-control">
+                                                <input type="number" name="umur_simpan" placeholder="Umur Simpan" class="form-control">
+                                                <div class="col-sm-8">
+                                                        <div class="form-group">
+                                                            plant :
+                                                          <label>
+                                                              A
+                                                            <input type="radio" name="plant" value="A" class="minimal-red" checked>
+                                                          </label>
+                                                           <label>
+                                                              B
+                                                            <input type="radio" name="plant" value="B" class="minimal-red" checked>
+                                                          </label>
+                                                           <label>
+                                                              E
+                                                            <input type="radio" name="plant" value="E" class="minimal-red" checked>
+                                                          </label>
+                                                           <label>
+                                                              F
+                                                            <input type="radio" name="plant" value="F" class="minimal-red" checked>
+                                                          </label>
+                                                           <label>
+                                                              M
+                                                            <input type="radio" name="plant" value="HB" class="minimal-red" checked>
+                                                          </label>
+                                                           <label>
+                                                              Export
+                                                            <input type="radio" name="plant" value="M" class="minimal-red" checked>
+                                                          </label>
+                                                        </div>
+                                                        </div>
+                                                        <label>Standar Yang Dibuat</label>
+                                                <input type="text" neme="tgl_dibuat" class="form-control" placeholder="Tanggal Dibuat Standar" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                                <input type="text" name="tgl_expired" class="form-control" placeholder="Tanggal Expired Standar" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                                <select name="sub_kategori" class="form-control">
+                                                        <option value=''>-- Tempat Penyimpanan --</option>
+                                                        <option value='Anticaking Agents'>Kulkas</option>
+                                                </select>
+                                                <label>Serving Size</label>
+                                                <div class="row">
+                                                <div class="col-md-6">
+                                                <input type="text" name="berat" class="form-control" value="Berat (gr)">
+                                                </div>
+                                                <div class="col-md-6">
+                                                <input type="text" name="stok_item" class="form-control" placeholder="Stok Item">
+                                                </div>
+                                                </div>
+                                                <input type="text" name="pembuat" class="form-control" placeholder="Pembuat">
+                                                <textarea name="keterangan" id="keterangan" cols="180" rows="3" placeholder="keterangan" class="form-control"></textarea>
+                                                <br>
+                                                <input type="submit" name="input" value="Input" class="btn btn-success form-control"><br><br>
+                                          
+                                            </div>
+                                        </form>
+                                       
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- /.content -->
+    
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="{{url('assets/plugins/jquery/jquery.min.js')}} "></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{url('assets/https://code.jquery.com/ui/1.12.1/jquery-ui.min.js')}} "></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{url('/assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}} "></script>
+<!-- AdminLTE App -->
+<script src="{{url('/assets/dist/js/adminlte.js')}} "></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{url('/assets/v')}} "></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{url('/assets/dist/js/demo.js')}} "></script>
+<!-- Select2 -->
+<script src="{{url('/assets/plugins/select2/select2.full.min.js')}} "></script>
+<script>
+  
+  $("#example1").DataTable();
+  
+
+
+  </script>
+
+</body>
+</html>
+@endsection

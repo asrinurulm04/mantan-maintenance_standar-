@@ -1,0 +1,18 @@
+name =
+- users_id
+- kode_oracle
+- nama_item
+- nolot
+- sub_kategori
+- lokasi
+- umur_simpan
+- plant
+- tempat_penyimpanan
+- tgl_datang
+- tgl_dibuat
+- tgl_expired
+- stok_item
+- pembuat
+- keterangan
+
+('','3','3','4','1','Garam 2019','NULL','B0010201090','A.C.8','200','aktif','250','aktif','12','2019-04-03','2019-04-03','2019-01-03','2019-02-03','2019-03-03','gram','','Inulin 22-00/G/20161121/RRNLB6ALB6','null','kulkas','null','null','rehan','N'),

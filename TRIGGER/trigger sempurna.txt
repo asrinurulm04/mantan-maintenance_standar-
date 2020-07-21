@@ -1,0 +1,39 @@
+BEGIN
+
+	IF NEW.stok_qc <=10 AND NEW.stok_qc >0 THEN
+        SET NEW.status_qc = 'hampirhabis';
+        ELSEIF NEW.stok_qc >10 THEN
+        SET NEW.status_qc = 'aktif';
+        ELSEIF NEW.stok_qc = 0 THEN
+        SET NEW.status_qc = 'habis';
+    END IF;
+   
+   	IF NEW.tgl_kadaluarsa_qc <=NOW() THEN
+        SET NEW.status_qc = 'kadaluarsa';
+    END IF;
+    
+    IF new.tgl_kadaluarsa_qc BETWEEN CURDATE() AND ADDDATE(CURDATE(), INTERVAL 14 DAY) THEN
+        SET new.status_qc='hampirkadaluarsa';
+    END IF;
+        
+    IF new.tgl_kadaluarsa_qc BETWEEN CURDATE() AND ADDDATE(CURDATE(), INTERVAL 14 DAY) AND new.stok_qc = 0 THEN
+        SET new.status_qc='hampirkadaluarsadanhabis';
+    END IF;
+    
+    
+    
+         
+   IF NEW.stok_rnd <=100 AND NEW.stok_rnd >0 THEN
+        SET NEW.status_rnd = 'hampirhabis';
+        ELSEIF NEW.stok_rnd >100 THEN
+        SET NEW.status_rnd = 'aktif';
+        ELSEIF NEW.stok_rnd = 0 THEN
+        SET NEW.status_rnd = 'habis';
+    END IF;
+        
+        
+        
+
+
+  
+END
