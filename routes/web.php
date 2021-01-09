@@ -229,6 +229,7 @@ Route::post('/rnd/order/proses/unrequest', 'RNDController@proses_order_unrequest
 Route::get('/rnd/order/terkirim/hapus/{id_order}', 'RNDController@order_terkirim_hapus');
 
 Route::get('download_order','excelController@download_order')->name('download_order');
+Route::get('download_wip','excelWIP@download_wip')->name('download_wip');
 Route::get('/rnd/standar/lokasi', 'RNDController@lokasi');
 Route::get('/rnd/ExportWIP','RNDController@export_excel_wip');
 Route::get('/rnd/ExportBaku','RNDController@export_excel_baku');

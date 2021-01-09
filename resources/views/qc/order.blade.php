@@ -69,7 +69,7 @@
           <thead class="bg-secondary">
             <tr>
               <th>Nama Item</th>
-              <th>Kode Oracle</th>
+              <th>Kode Formula</th>
               <th>Alasan</th>
               <th>Serving Size</th>
               <th colspan="2">Jumlah Pesan</th>
@@ -86,7 +86,7 @@
           <thead class="bg-secondary">
             <tr>
               <th>Nama Item</th>
-              <th>Kode Oracle</th>
+              <th>Kode Formula</th>
               <th>Alasan</th>
               <th>Serving Size</th>
               <th colspan="2">Jumlah Pesan</th>
@@ -104,7 +104,7 @@
             <input type="hidden" value="{{$o->status_qc}}" name="alasan">
             <tr>
               <td>{{$o->nama_item}}</td>
-              <td>{{$o->kode_oracle}}</td>
+              <td>{{$o->kode_formula}}</td>
               <td>
                 @if($o->status_qc == 'aktif')
                 <span class="right text-white text-bold p-1 badge badge-info">Pembaruan Standar</span> <input type="hidden" value="{{$o->status_qc}}" name="alasan">
@@ -176,7 +176,7 @@
             <thead class="bg-secondary">
               <tr>
                 <th>Nama Item</th>
-                <th>Kode Oracle</th>
+                <th>Kode Formula</th>
                 <th>Alasan</th>
                 <th>Serving Size</th>
                 <th colspan="2">Jumlah Pesan</th>
@@ -193,7 +193,7 @@
             <thead class="bg-secondary">
               <tr>
                 <th>Nama Item</th>
-                <th>Kode Oracle</th>
+                <th>Kode Formula</th>
                 <th>Alasan</th>
                 <th>Serving Size</th>
                 <th colspan="2">Jumlah Pesan</th>
@@ -211,7 +211,7 @@
               <input type="hidden" value="{{$o->status_qc}}" name="alasan">
               <tr>
                 <td>{{$o->nama_item}}</td>
-                <td>{{$o->kode_oracle}}</td>
+                <td>{{$o->kode_formula}}</td>
                 <td>
                   @if($o->status_qc == 'aktif')
                   <span class="right text-white text-bold p-1 badge badge-info">Pembaruan Standar</span> <input type="hidden" value="{{$o->status_qc}}" name="alasan">

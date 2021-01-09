@@ -43,7 +43,7 @@ class cetakController extends Controller
 
         $awal=1;
 
-        $data=standar::where('freeze','=','N')->where('jenis_item_id','=','1')
+        $data=standar::where('jenis_item_id','=','1')
             ->join('tb_plant','tb_plant.id_plant','=','standar.plant_id')->get();
         $no=1;
         foreach($data as $_data){

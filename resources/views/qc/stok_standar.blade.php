@@ -131,6 +131,7 @@
           <tr>
             <th>Nama Item</th>
             <th>Kode Formula</th>
+            <th>Revisi formula</th>
             <th>Stok</th>
             <th>Lokasi</th>
             <th>Tanggal Kadaluarsa</th>
@@ -235,7 +236,8 @@
               @endif    
             </td>
             @endif
-            <td>{{$s->status_qc}}  <input type="hidden" name="nama_item" value="{{$s->kode_formula}}"> </td>         
+            <td>{{$s->status_qc}}  <input type="hidden" name="nama_item" value="{{$s->kode_formula}}"> </td>  
+            <td>{{$s->status_qc}}  <input type="hidden" name="nama_item" value="{{$s->kode_revisi_formula}}"> </td>         
             <td> <?php echo (ceil($s->stok_qc / $s->serving_size))?> {{$s->satuan}} <input type="hidden" value="{{ $s->stok_qc}}" name="stok_qc" id="stok_qc"></td>
             <td>
               @if($s->status_qc == 'kadaluarsa')
@@ -261,13 +263,14 @@
       <table class="Table table-bordered mb-5">
         <thead class="text-dark text-bold">
           <tr>
-            <th width="30%">Nama Item</th>
-            <th>Kode Formula</th>
-            <th>Stok</th>
-            <th>Lokasi</th>
-            <th>Tanggal Kadaluarsa</th>
-            <th>Tanggal Terima</th>
-            <th>Opsi</th>
+            <th class="text-center" width="30%">Nama Item</th>
+            <th class="text-center">Kode Formula</th>
+            <th class="text-center">Revisi formulaa</th>
+            <th class="text-center">Stok</th>
+            <th class="text-center">Lokasi</th>
+            <th class="text-center">Tanggal Kadaluarsa</th>
+            <th class="text-center">Tanggal Terima</th>
+            <th class="text-center" width="9%">Opsi</th>
           </tr>
         </thead>
         <tbody>
@@ -369,7 +372,8 @@
               @endif    
             </td>
             @endif
-            <td>{{$s->kode_formula}}</td>
+            <td class="text-center">{{$s->kode_formula}}</td>
+            <td class="text-center">{{$s->kode_revisi_formula}}</td>
             <td> <?php echo (ceil($s->stok_qc / $s->serving_size))?> {{$s->satuan}} <input type="hidden" value="{{ $s->stok_qc}}" name="stok_qc" id="stok_qc"></td>
             <td>
               <input type="text" class="disabled form-control" size="1" disabled value="{{$s->lokasi}}" id="lokasi" name="lokasi" disabled>
@@ -504,7 +508,8 @@
               @endif    
             </td>
             @endif
-            <td>{{$s->kode_formula}}</td>
+            <td clas="text-center">{{$s->kode_formula}}</td>
+            <td clas="text-center">{{$s->kode_revisi_formula}}</td>
             <td> <?php echo (ceil($s->stok_qc / $s->serving_size))?> {{$s->satuan}} <input type="hidden" value="{{ $s->stok_qc}}" name="stok_qc" id="stok_qc"></td>
             <td>
               <input type="text" class="disabled form-control" size="1" disabled value="{{$s->lokasi}}" id="lokasi" name="lokasi" disabled>

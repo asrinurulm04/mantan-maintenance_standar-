@@ -78,7 +78,7 @@
       <thead class="bg-secondary">
         <tr>
           <th>Nama Standar</th>
-          <th>Kode Formula</th>
+          <th>Kode Formula / Kode Oracle</th>
           <th>Kode Revisi</th>
           <th>Alasan</th>
           <th>Serving Size</th>
@@ -170,7 +170,7 @@
                           <div class="row">
                             <div class="col-sm-3">
                               <div class="input-group input-group-xs">
-                                <input name='serving_size' min="0" step="0.0001" value="{{$o->serving_size}}" id="modal-input-servingSize" class='form-control' readonly>
+                                <input name='serving_size' min="1" step="0.0001" value="{{$o->serving_size}}" id="modal-input-servingSize" class='form-control' readonly>
                                 <div class="input-group-append">
                                   <a class="btn btn-secondary modal-input-gram" disabled>Gram</a>
                                 </div>

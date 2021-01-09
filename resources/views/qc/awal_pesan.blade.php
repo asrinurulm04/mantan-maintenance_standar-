@@ -80,7 +80,7 @@
               <div class="row">
                 <div class="col-sm-3">   
                   <div class="input-group input-group-xs">
-                  <input name='serving_size' min="0" step="0.0001" id="serving_size" value="{{$s->serving_size}}" type="number" class='form-control' required>
+                  <input name='serving_size' min="1" step="0.0001" id="serving_size" value="{{$s->serving_size}}" type="number" class='form-control' required>
                     <div class="input-group-append">
                         <button class="btn btn-secondary" disabled id="mata"> Gram</button>
                     </div>

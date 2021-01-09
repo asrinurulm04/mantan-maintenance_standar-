@@ -86,7 +86,7 @@
                 </tr>
                 <tr>
                   <td>Serving Size</td>
-                  <td><input name='serving_size' id="serving_size" type="number" min="0" step="0.0001" class='form-control' value='{{$o->serving_size}}' readonly></td>
+                  <td><input name='serving_size' id="serving_size" type="number" min="1" step="0.0001" class='form-control' value='{{$o->serving_size}}' readonly></td>
                 </tr>
                 <tr>
                   <td>Jumlah Kirim <br> <p class="small">(Pilih Salah Satu)</p></td>

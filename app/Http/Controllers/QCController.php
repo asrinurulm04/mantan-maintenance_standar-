@@ -21,7 +21,7 @@ class QCController extends Controller
     {
         $this->middleware('auth');
     }
-
+ 
     // Stok Standar
     public function stok()
     {
@@ -830,6 +830,7 @@ class QCController extends Controller
             ->where('email_pemohon',Auth::user()->email)
             ->where('stat','kirim')->orWhere('stat','kirim_unrequest')->orderBy('id_order','desc')
             ->get();
+            // dd($orders);
         $pesan4 = DB::table('tb_notification')->where('subject','=','menambah stok bahan baku')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
         $pesan1 = DB::table('tb_notification')->where('subject','=','QC memakai std')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
         $pesan2 = DB::table('tb_notification')->where('subject','=','QC Memesan std')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
@@ -893,6 +894,17 @@ class QCController extends Controller
                         'kondisi' => null,
                         'peminta_id' => null,
                         'tgl_terima' => Carbon\Carbon::now()
+                    ]);
+                }
+		 else if($request->alasan == 'hampirExpired')
+                {
+                    $stok_qc = $request->jumlah_kirim;
+                    $standar = DB::table('standar')->where('id_standar',$request->id_standar)->update([
+                    'stok_qc' => $stok_qc,
+                    'tgl_kadaluarsa_qc' => $s->tgl_kadaluarsa_rnd,
+                    'kondisi' => null,
+                    'peminta_id' => null,
+                    'tgl_terima' => Carbon\Carbon::now()
                     ]);
                 }
                 else if($request->alasan == 'kadaluarsa')
@@ -998,6 +1010,17 @@ class QCController extends Controller
                     'peminta_id' => null,
                     'tgl_terima' => Carbon\Carbon::now()
                 ]);
+            }
+	     else if($request->alasan == 'hampirExpired')
+             {
+                    $stok_qc = $request->jumlah_kirim;
+                    $standar = DB::table('standar')->where('id_standar',$request->id_standar)->update([
+                    'stok_qc' => $stok_qc,
+                    'tgl_kadaluarsa_qc' => $s->tgl_kadaluarsa_rnd,
+                    'kondisi' => null,
+                    'peminta_id' => null,
+                    'tgl_terima' => Carbon\Carbon::now()
+                    ]);
             }
             else if($request->alasan == 'kadaluarsa')
             {

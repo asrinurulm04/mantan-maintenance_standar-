@@ -69,7 +69,7 @@
               </tr>
               <tr>
                 <td>Serving Size ( Gram )</td>
-                <td><input type="number" name="serving_size" min="0" step="0.0001" class="form-control" tooltip="Serving Size" required></td>
+                <td><input type="number" name="serving_size" min="1" step="0.0001" class="form-control" tooltip="Serving Size" required></td>
               </tr>
               <tr>
                 <td>Catatan Serving Size </td>

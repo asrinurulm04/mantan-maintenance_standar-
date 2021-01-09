@@ -129,7 +129,7 @@
 							</tr>
 							<tr>
 								<td>Serving Size</td>
-								<td><input name='serving_size' type="text" min="0" step="0.0001" class='form-control' value='{{$s->serving_size}}'></td>
+								<td><input name='serving_size' type="text" min="1" step="0.0001" class='form-control' value='{{$s->serving_size}}'></td>
 							</tr>
 							<tr>
 								<td>Catatan Serving Size</td>

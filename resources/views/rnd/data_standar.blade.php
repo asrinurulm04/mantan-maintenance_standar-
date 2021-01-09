@@ -126,7 +126,7 @@
         @endif        
       </div>
       <div class="card-body">
-        <a href="/rnd/ExportWIP" onclick="return confirm('Anda Yakin ?')"class="btn btn-sm btn-success"><i class="fa fa-download"></i> Download Excel WIP RD</a>
+        <a href="{{url('download_wip')}}" onclick="return confirm('Anda Yakin ?')"class="btn btn-sm btn-success"><i class="fa fa-download"></i> Tarik data WIP</a>
         <a href="{{route('cetakstandar')}}" class="btn btn-success btn-sm"><li class="fa fa-print"></li> Cetak Label Standar</a>
         <br><br>
           <table class="Table table-bordered" style="overflow-y: scroll;">

@@ -57,7 +57,7 @@
               <div class="row">
                 <div class="col-sm-3">   
                   <div class="input-group input-group-xs">
-                    <input name='serving_size' id="serving_size" min="0" step="0.0001" type="number" class='form-control' value='{{$s->serving_size}}' >
+                    <input name='serving_size' id="serving_size" min="1" step="0.0001" type="number" class='form-control' value='{{$s->serving_size}}' >
                     <div class="input-group-append">
                         <button class="btn btn-secondary" disabled id="mata"> Gram</button>
                     </div>
