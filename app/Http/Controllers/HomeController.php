@@ -74,6 +74,10 @@ class HomeController extends Controller
         ->join('standar','history.standar_id','=','standar.id_standar')->get();
         $history = DB::table('history')
         ->join('standar','history.standar_id','=','standar.id_standar')->paginate(10);
+        $historys = null;
+        $pengirim = null;
+        $pen = null;
+        $hitung = null;
         
         return view('/history_pakai',compact('history','pesan1','pesan2','pesan3','pesan4','history','hitungOrderSendiri','order_qc','order_diterima','order_diterima_rnd','order_rnd','order_diterima_qc','historys','pengirim','pen','hitung'));
     }
