@@ -37,7 +37,10 @@ class QCController extends Controller
         $pesan1 = DB::table('tb_notification')->where('subject','=','QC memakai std')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
         $pesan2 = DB::table('tb_notification')->where('subject','=','QC Memesan std')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
         $pesan3 = DB::table('tb_notification')->where('subject','=','telah diterima')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
-         
+        $bagi = null;
+        $orders = null;
+        $ok = null;
+        
         $standar = DB::table('standar')
             ->leftjoin('users','standar.peminta_id','=','users.id')->where('status_qc','!=','belum_dikirim')
             ->leftjoin('tb_satuan','standar.satuan_id','=','tb_satuan.id_satuan')
@@ -470,7 +473,10 @@ class QCController extends Controller
         $order_rnd = DB::table('order')->where('stat','keranjangrd')->orWhere('stat','kirim_unrequest');
         $order_qc = DB::table('order')->where('pemohon',auth::user()->email)->where('stat','pesan')->orWhere('stat','keranjang');
         $order_diterima_qc = DB::table('order')->where('email_pemohon',Auth::user()->email)->where('stat','kirim')->orWhere('stat','kirim_unrequest')->get();
-       
+        $order3 = null;
+        $order4 = null;
+        $or = null;
+
         $orders = DB::table('order')
             ->join('standar','order.standar_id','=','standar.id_standar')
             ->join('users','order.pemohon_id','=','users.id')
@@ -573,6 +579,7 @@ class QCController extends Controller
                 $join->on('order.bagian_pemohon', '=', 'tb_bagian.id_bagian');
             })
             ->get();
+        $standar = null;
         $pesan4 = DB::table('tb_notification')->where('subject','=','menambah stok bahan baku')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
         $pesan1 = DB::table('tb_notification')->where('subject','=','QC memakai std')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
         $pesan2 = DB::table('tb_notification')->where('subject','=','QC Memesan std')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
