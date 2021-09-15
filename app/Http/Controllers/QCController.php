@@ -60,7 +60,9 @@ class QCController extends Controller
     {
         if(Auth::user()->work_center != 'QC'){
            return redirect()->back();
-        }
+        }        
+        $orders = null;
+        $ok = null;
         $hitungOrderSendiri = DB::table('order')->where('email_pemohon',Auth::user()->email)->where('stat','!=','batal')->where('stat','!=','kirim')->where('stat','!=','order_diterima')->where('stat','!=','keranjangrd')->where('stat','!=','kirim_unrequest');
         $order_diterima_rnd = DB::table('order')->where('stat','pesan')->orWhere('stat','kirim');
         $order_rnd = DB::table('order')->where('stat','keranjangrd')->orWhere('stat','kirim_unrequest');
