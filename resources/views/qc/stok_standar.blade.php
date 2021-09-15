@@ -265,7 +265,7 @@
           <tr>
             <th class="text-center" width="30%">Nama Item</th>
             <th class="text-center">Kode Formula</th>
-            <th class="text-center">Revisi formulaa</th>
+            <th class="text-center">Revisi Formula</th>
             <th class="text-center">Stok</th>
             <th class="text-center">Lokasi</th>
             <th class="text-center">Tanggal Kadaluarsa</th>
