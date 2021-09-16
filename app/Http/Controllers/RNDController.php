@@ -487,6 +487,8 @@ class RNDController extends Controller
             ->get();
         $history = DB::table('history')->get();
         $users = DB::table('users')->get();
+        $pesan = null;
+        $order2 = null;
         return view('/rnd/order',compact('orders','bagian','order_qc','pesan1','pesan2','pesan3','pesan4','order_diterima_qc','pesan','order2','order_rnd','order_diterima_rnd','history','order_qc'));
     }
     
@@ -564,6 +566,9 @@ class RNDController extends Controller
         $order_diterima_qc = DB::table('order')->where('stat','kirim')->orWhere('stat','kirim_unrequest')->get();
         $orders = DB::table('order')->paginate(20);
         $standar = DB::table('standar')->get();
+        $pemohon = null;
+        $pesan = null;
+        $order2 = null;
        
         $orders = DB::table('order')
             ->leftjoin('standar','order.standar_id','=','standar.id_standar')
