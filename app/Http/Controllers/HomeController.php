@@ -422,7 +422,8 @@ $orders = DB::table('order')
          $pesan2 = DB::table('tb_notification')->where('subject','=','QC Memesan std')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
          $pesan3 = DB::table('tb_notification')->where('subject','=','telah diterima')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
          $pesan4 = DB::table('tb_notification')->where('subject','=','menambah stok bahan baku')->join('users','users.id','=','tb_notification.id_user')->join('standar','standar.id_standar','=','tb_notification.id_standar')->get();
-         
+        
+        $order_diterima = null;
         $order_qc = DB::table('order')->where('stat','order')->orWhere('stat','keranjang');
         $order_diterima_rnd = DB::table('order')->where('stat','pesan')->orWhere('stat','kirim');
          $hitungOrderSendiri = DB::table('order')->where('email_pemohon',Auth::user()->email)->where('stat','!=','batal')->where('stat','!=','kirim')->where('stat','!=','order_diterima')->where('stat','!=','keranjangrd')->where('stat','!=','kirim_unrequest');
